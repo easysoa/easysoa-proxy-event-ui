@@ -8,7 +8,7 @@ This application is ruby based, specially rails which is a very popular web fram
 
 Lets talk about how it works. this application  has many requirements:
 
-- Download and install Ruby and Rails http://rubyonrails.org/
+- Download and install Ruby(1.9.3) and Rails http://rubyonrails.org/
 
 - After installing ruby and rails install thin server by running: sudo gem install thin
 
