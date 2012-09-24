@@ -1,0 +1,11 @@
+Espace Perso
+
+<ul>
+  <li><%= link_to 'Home', :controller => "users", :action => "welcome" %> </li>
+  <li><%= link_to 'Services Nuxeo', :controller => "users", :action => "nuxeoserviceslist" %> </li>
+  <li><%= link_to 'Create a new proxy', :controller => "proxies", :action => "new" %> </li>
+  <li><%= link_to 'list proxies', :controller => "proxies", :action => "index" %> </li>
+  <li><%= link_to 'Subscriptions', :controller => "users", :action => "listsubscriptions" %> </li>
+  <li><a href="http://www.easysoa.org">EasySOA</a></li>
+  <li><%= link_to 'Disconnect', :controller => "users", :action => "disconnect" %> </li>
+</ul>

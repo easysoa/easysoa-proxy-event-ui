@@ -1,0 +1,20 @@
+<% if !session[:state].nil? %>
+    <div class="alert alert-error span3">
+
+      <% if (session[:state]==0) %>
+          Unknow user
+      <% end %>
+      <% if (session[:state]==1) %>
+          Wrong password
+      <% end %>
+      <% if (session[:state]==2) %>
+          Use the same login for Nuxeo and this app
+      <% end %>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+<% end %>
+
+<%= render 'connexion' %>

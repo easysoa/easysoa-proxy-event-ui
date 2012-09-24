@@ -1,0 +1,53 @@
+<% content_for :userstate do %>
+    <img src="/easysoa/img/user.png">
+    Logged as
+    <span id="username"><%= @user['username'] %></span>
+    (
+    <a href="http://localhost:8080/nuxeo/logout">logout</a>
+    )
+    </div>
+    Web Service details
+<% end %>
+<div id="leftframe">
+  <ul class="nav nav-tabs">
+    <li class="active" >  <%= link_to 'Home', :controller => "users", :action => "welcome" %> </li>
+    <li><%= link_to 'Services Nuxeo', :controller => "users", :action => "nuxeoserviceslist" %> </li>
+    <li><%= link_to 'Subscriptions', :controller => "subscriptions", :action => "showsubscriptions" %> </li>
+    <li>     <a href="http://www.easysoa.org">EasySOA</a> </li>
+    <li><a href="#"> Alerts </a></li>
+    <li><%= link_to 'Disconnect', :controller => "users", :action => "disconnect" %> </li>
+  </ul>
+</div>
+
+<div id="rightframe">
+  <table class="table table-condensed">
+    <tr>
+      <th> Attribute </th>
+      <th> Value </th>
+    </tr>
+    <tr>
+      <td>Nuxeo ID</td>   <td> <%= @service['uid'] %> </td>
+    </tr>
+
+    <tr>
+      <td>Title</td>   <td> <%= @service['title'] %> </td>
+    </tr>
+    <td>Url</td>         <td> <%= @service['properties']['serv:url'] %></td>
+    <tr>
+      <td> Last modification</td>      <td> <%= @service['lastModified'].to_datetime.strftime('%d %B %Y %Hh %Mmin %Ss')  %></td>
+    </tr>
+
+    <tr><td>Soa ArchiPath</td> <td> <%= @service['properties']['soa:archiPath'] %></td></tr>
+    <tr><td>Call count</td> <td> <%= @service['properties']['serv:callcount'] %></td></tr>
+
+    <tr>
+      <td>Repository</td>   <td> <%= @service['repository'] %> </td>
+    </tr>
+    <tr>
+      <td>State</td>   <td> <%= @service['state'] %> </td>
+    </tr>
+    <tr><td>Contributors</td> <td> <%= @service['properties']['dc:contributors'] %></td></tr>
+    <tr><td>Last contributor</td> <td> <%= @service['properties']['dc:lastContributor'] %></td></tr>
+
+  </table>
+</div>

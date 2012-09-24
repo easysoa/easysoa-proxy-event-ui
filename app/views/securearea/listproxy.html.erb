@@ -1,0 +1,35 @@
+<br/>
+<div id="loginas" style="font-size: 15px;">
+  Proxies list
+</div>
+
+<div class="span8">
+
+  <table class="table table-bordered">
+
+    <tr>
+      <th class="menufontstyle">Title</th>
+      <th class="menufontstyle">Url</th>
+      <th></th>
+    </tr>
+    <% @proxies.each do |proxy| %>
+        <tr>
+          <td><%= proxy.title %></td>
+          <td><%= proxy.url %></td>
+
+          <td>
+            <div class="menufontstyle" style="font-size: 15px;">
+              <%= link_to "Delete",
+                          :controller => "securearea",
+                          :action => "deleteproxy",
+                          :proxy => proxy %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+
+  <div class="menufontstyle" style="font-size: 15px;">
+    <%= link_to 'Create a new proxy', :controller => "securearea", :action => "newproxy" %>
+  </div>
+</div>

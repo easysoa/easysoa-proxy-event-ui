@@ -1,0 +1,31 @@
+<%= form_for(@templatejxpath, :validate => true, :url => {:action => 'newtemplatejxpath'}, :html => {:class => "form-horizontal"}) do |f| %>
+    <% if @templatejxpath.errors.any? %>
+        <div class="alert alert-error">
+          <ul>
+            <% @templatejxpath.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :value %>
+      <br/>
+      <%= f.text_field :value %>
+    </div>
+    <div class="field">
+      <%= f.label :description %>
+      <br/>
+      <%= f.text_area :description %>
+    </div>
+
+
+    <input id='templatejxpath_id' name='templatejxpath[id]' value='  <%= @templatejxpath.id %> ' type="hidden"/>
+    <br/>
+    <br/>
+    <%= f.submit :value => "Edit", :class => "btn btn-info", :confirm => "Are you sure?" %>
+
+    </div>
+<% end %>
+

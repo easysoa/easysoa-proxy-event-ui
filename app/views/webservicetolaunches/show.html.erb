@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @webservicetolaunch.description %>
+</p>
+
+<p>
+  <b>Environment:</b>
+  <%= @webservicetolaunch.environment %>
+</p>
+
+<p>
+  <b>Nuxeouid:</b>
+  <%= @webservicetolaunch.nuxeouid %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @webservicetolaunch.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_webservicetolaunch_path(@webservicetolaunch) %> |
+<%= link_to 'Back', webservicetolaunches_path %>

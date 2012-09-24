@@ -1,0 +1,33 @@
+
+
+    Authentication form
+
+
+    <%= link_to 'register', new_user_path %>
+
+    <%= form_tag("/users/connexion", :method => "post",:class => "form-horizontal", :class=>" monform") do %>
+    <%= label_tag(:q, "username") %>
+
+    <%= text_field_tag :username, nil, :width => 5 %>
+
+    <%= label_tag(:q, "password") %>
+    <%= password_field_tag :password %>
+    <br/>
+    <%= submit_tag("Log in", :class=>"btn btn-info") %>
+    <% end %>
+
+
+  <% if !@state.nil? %>
+
+
+      <% case @state[0]
+           when "p" %>  <div class="alert alert-error">
+            wrong password
+        <% when "n" %>
+            premiere connexion
+        <% when "f" %>
+            Use The same user for both systems</div>
+      <% end %>
+
+      <% end %>
+

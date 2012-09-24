@@ -1,0 +1,38 @@
+<h1>Listing subscriptions</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Subscription Type</th>
+    <th>Web service to listen Url</th>
+    <th>Web services to launch</th>
+
+    <th></th>
+    <th></th>
+
+  </tr>
+
+  <% @subscriptions.each do |subscription| %>
+      <tr>
+        <td><%= subscription.description %></td>
+
+        <td><%= subscription.subscription_type.description %> </td>
+
+        <td> <%= subscription.webservicetolisten.url %> </td>
+        <td>
+          <% @toCall = subscription.webservicetolaunch
+             @toCall.each do |entry|
+          %>
+
+            <%= entry.url %> <br/>
+          <% end %>
+        </td>
+        <td><%= link_to 'Show', subscription %></td>
+        <td><%= link_to 'Destroy', subscription, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Subscription', new_subscription_path %>

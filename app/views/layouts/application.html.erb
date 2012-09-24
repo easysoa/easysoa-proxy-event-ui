@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Easysoamonitoring</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Oranienbaum' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="row">
+        <%= image_tag "easysoa.png", :class => "span2" %>
+        <div id="loginas" style="color:white; font-size: 25px; margin-left:250px; margin-top: 10px;">
+          <% if session[:user_id].nil? %>
+
+              <%= link_to 'Register', :controller => "unsecurearea", :action => "register" %>
+
+              <%= link_to 'Log in', :controller => "unsecurearea", :action => "connexion" %>
+
+        <% else %>
+              Logged in as <%= session[:user_username] %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="container" style="padding-top: 50px;">
+
+  <%= yield %>
+
+</div>
+
+</body>
+</html>

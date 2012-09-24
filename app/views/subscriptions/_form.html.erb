@@ -1,0 +1,41 @@
+<%= form_for(@subscription) do |f| %>
+  <% if @subscription.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+      <ul>
+      <% @subscription.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+    Web Service To Listen <br/>
+    <%= @service['title'] %>
+
+
+    <div class="field">
+
+      <%= f.label :proxy %><br />
+    <%=  select_tag 'proxy_id', options_for_select(@proxies.collect {|proxy| [proxy.title, proxy.id]}) %>
+    </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+     Web Service To Launch
+    <br />
+     <% i=0 %>
+    <% @myTab.each do |entry| %>
+
+          <%= entry[1]%> <%= check_box_tag i.to_s, entry[0] %>
+                          <% i = i+1 %>
+    <% end %>
+
+           <br /><br />
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

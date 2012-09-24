@@ -1,0 +1,11 @@
+<div id="loginas" style="font-size: 15px;"><br/>
+  Add a Custom Template
+</div>       <br/>
+<%= form_tag("/user/addcustomjxpath", :method => "post") do %>
+
+    <%= select_tag 'id', options_for_select(@cj.collect { |proxy| [proxy.description, proxy.id] }) %>
+
+    <input id='subscription_id' name='subscription' value='  <%= @subscription_id %> ' type="hidden"/>
+    <br/>
+    <%= submit_tag("Add", :class => "btn btn-info") %>
+<% end %>

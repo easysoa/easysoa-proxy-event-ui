@@ -1,0 +1,43 @@
+<%= form_for(@subscription, :validate => true, :url => {:action => 'createsubscription'}, :html => {:class => "form-horizontal"}) do |f| %>
+
+    <% if @subscription.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@subscription.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+
+          <ul>
+            <% @subscription.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="menufontstyle">
+      Web Service To Listen
+    </div>
+    <%= @service['title'] %>
+    <div class="menufontstyle">
+      <%= f.label :proxy %>
+    </div>
+    <%= select_tag 'proxy_id', options_for_select(@proxies.collect { |proxy| [proxy.title, proxy.id] }) %>
+
+
+    <div class="menufontstyle">
+      <%= f.label :description %>
+    </div>
+    <%= f.text_field :description %>
+    <br/>
+    <div class="menufontstyle">
+      Web Service To Launch
+    </div>
+    <% i=0 %>
+    <% @myTab.each do |entry| %>
+
+        <%= entry[1] %> <%= check_box_tag i.to_s, entry[0] %>
+        <% i = i+1 %>
+    <% end %>
+    <br/>
+    <br/>
+    <%= f.submit :class => "btn btn-info" %>
+
+<% end %>

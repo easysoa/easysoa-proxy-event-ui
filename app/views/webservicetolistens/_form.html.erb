@@ -1,0 +1,45 @@
+<%= form_for(@webservicetolisten) do |f| %>
+  <% if @webservicetolisten.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@webservicetolisten.errors.count, "error") %> prohibited this webservicetolisten from being saved:</h2>
+
+      <ul>
+      <% @webservicetolisten.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :archipath %><br />
+    <%= f.text_field :archipath %>
+  </div>
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :environment %><br />
+    <%= f.text_field :environment %>
+  </div>
+  <div class="field">
+    <%= f.label :nuxeouid %><br />
+    <%= f.text_field :nuxeouid %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

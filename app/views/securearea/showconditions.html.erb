@@ -1,0 +1,31 @@
+<div id="loginas" style="font-size: 15px;"><br/>
+  Conditions list
+</div>
+
+<% if @jxpathconditions.nil? || @jxpathconditions.empty? %>
+    There is no condition for this subscription
+<% else %>
+
+    <table class="table table-bordered">
+      <tr>
+        <th class="menufontstyle">Valeur</th>
+        <th class="menufontstyle">Description</th>
+
+        <th class="menufontstyle">Action</th>
+      </tr>
+
+      <% @jxpathconditions.each do |condition| %>
+          <tr>
+            <td><%= condition.value %></td>
+            <td><%= condition.description %></td>
+            <td class="menufontstyle">
+              <%= link_to "Delete",
+                          :controller => "securearea",
+                          :action => "deletejxpathcondition",
+                          :condition => condition
+              %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+<% end %>

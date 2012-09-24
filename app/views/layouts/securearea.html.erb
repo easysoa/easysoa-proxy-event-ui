@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Easysoamonitoring</title>
+  <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Oranienbaum' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Mate+SC' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Jockey+One' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <div class="row">
+        <%= image_tag "easysoa.png", :class => "span2" %>
+        <div id="loginas" style="color:white; font-size: 25px; margin-left:250px; margin-top: 10px;">
+          <% if session[:user_id].nil? %>
+
+              <%= link_to 'Log in', :controller => "unsecurearea", :action => "connexion" %>
+          <% else %>
+              Logged in as <%= session[:username] %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container" style="background-color:#fff8dc;">
+  <div class="row" style="padding-top: 45px;">
+    <div class="span2" style="color:white; font-size: 20px; ">
+
+      <div class="menufontstyle">
+        <%= link_to 'Home', :controller => "securearea", :action => "welcome" %> <br/>
+        <%= link_to 'Services Nuxeo', :controller => "securearea", :action => "nuxeoservices" %> <br/>
+        <%= link_to 'Proxies', :controller => "securearea", :action => "listproxy" %>                 <br/>
+        <%= link_to 'Subscriptions', :controller => "securearea", :action => "subscriptionslist" %>        <br/>
+        <% if session[:user_role_id]==1 %>
+            <%= link_to 'New custom JXPath', :controller => "poweruser", :action => "newcustomjxpath" %>        <br/>
+            <%= link_to 'New template JXPath', :controller => "poweruser", :action => "newtemplatejxpath" %>
+            <br/>
+            <%= link_to 'List template JXPath', :controller => "poweruser", :action => "listtemplatejxpath" %>
+            <br/>
+            <%= link_to 'List custom JXPath', :controller => "poweruser", :action => "listcustomjxpath" %>
+            <br/>
+        <% end %>
+        <%= link_to 'Services To Listen', :controller => "securearea", :action => "listolisten" %>
+        <br/>
+        <%= link_to 'Services To Launch', :controller => "securearea", :action => "listtolaunch" %>
+        <br/>   <%= link_to "EasySOA", "http://www.easysoa.org" %>
+        <br/>
+        <%= link_to 'Disconnect', :controller => "unsecurearea", :action => "disconnect" %>
+        <br/>
+      </div>
+    </div>
+    <div class="span7">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b> Web Service to Listen:</b>
+  <br/> <%= @subscription.webservicetolisten.url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <br/> <%= @subscription.description %>
+</p>
+
+<p>
+  <b> Proxy:</b>
+  <br/>
+    <% if (@subscription.proxy.nil?) %>
+      Aucun
+      <% else  %>
+  <%= @subscription.proxy.url %>
+  <% end %>
+</p>
+
+<p>
+  <b> Added By:</b>
+  <br/> <%= @subscription.user.username %>
+</p>
+
+
+<p>
+  <b> Web service Type:</b>
+  <br/><%= @subscription.subscription_type.description %>
+</p>
+
+<p>
+  <b> Web Service to Launch:</b>
+  <% @toCall =  @subscription.webservicetolaunch
+    @toCall.each do |entry|
+  %>
+      <br/><%= entry.url%>
+  <% end %>
+
+</p>
+
+<p>
+  <b>Create At:</b>
+  <br/> <%= @subscription.created_at %>
+</p>

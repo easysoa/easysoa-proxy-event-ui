@@ -1,0 +1,70 @@
+<br/>
+<div id="loginas">Web Services to listen list</div>  <br/>
+
+<table class="table table-bordered" style="font-size: 10px;">
+  <tr>
+    <th class="menufontstyle">Description</th>
+    <th class="menufontstyle">Subscription Type</th>
+    <th class="menufontstyle">Web service to listen Url</th>
+    <th class="menufontstyle">Web services to launch</th>
+    <th class="menufontstyle">Proxy title - Url</th>
+    <th class="menufontstyle"> Actions</th>
+  </tr>
+  <% if !@subscriptions.nil? %>
+      <% @subscriptions.each do |subscription| %>
+          <tr>
+            <td><%= subscription.description %></td>
+
+            <td><%= subscription.subscription_type.description %> </td>
+
+            <td> <%= subscription.webservicetolisten.url %> </td>
+            <td>
+              <ul>
+                <% @toCall = subscription.webservicetolaunch
+                   @toCall.each do |entry|
+                %>
+                    <li>
+                      <%= entry.url %>
+                    </li>
+                <% end %>
+              </ul>
+            </td>
+            <td>
+              <% proxy = subscription.proxy
+                 if !proxy.nil? %>
+                  <%= proxy.title %>  -  <%= proxy.url %>
+              <% end %>
+
+            </td>
+            <td>       <div class="menufontstyle">
+              <%= link_to " Show Conditions",
+                          :controller => "securearea",
+                          :action => "showconditions",
+                          :subscription => subscription,
+                          :confirm => "Are Your Sure?"
+
+              %> <br/>
+              <%= link_to "Add a Template Condition",
+                          :controller => "securearea",
+                          :action => "addtemplatejxpath",
+                          :subscription => subscription,
+                          :confirm => "Are Your Sure?"
+              %>      <br/>
+              <%= link_to "Add a Custom Condition",
+                          :controller => "securearea",
+                          :action => "addcustomjxpath",
+                          :subscription => subscription,
+                          :confirm => "Are Your Sure?"
+              %> <br/>
+              <%= link_to "Delete",
+                          :controller => "securearea",
+                          :action => "deletesubscription",
+                          :subscription => subscription,
+                          :confirm => "Are Your Sure?"
+              %>  </div>
+            </td>
+          </tr>
+      <% end %>
+  <% end %>
+</table>
+</div>

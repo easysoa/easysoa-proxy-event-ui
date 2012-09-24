@@ -1,0 +1,15 @@
+
+<div id="loginas" style="font-size: 15px;"><br/>
+ Add a JXPath Template
+</div>       <br/>
+    <%= form_tag("/user/addtemplatejxpath", :method => "post") do %>
+
+        <%=  select_tag 'id', options_for_select(@tj.collect {|proxy| [proxy.description, proxy.id]}) %>
+
+        <%= text_field_tag :value, nil, :width => 10 %>
+
+        <input id='subscription_id' name='subscription' value='  <%=  @subscription_id  %> ' type="hidden" />
+
+        <br/>
+        <%= submit_tag("Add", :class=>"btn btn-info") %>
+    <% end %>

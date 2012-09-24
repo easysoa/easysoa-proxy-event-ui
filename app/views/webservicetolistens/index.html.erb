@@ -1,0 +1,35 @@
+<h1>Listing webservicetolistens</h1>
+
+<table>
+  <tr>
+    <th>Archipath</th>
+    <th>Date</th>
+    <th>Description</th>
+    <th>Environment</th>
+    <th>Nuxeouid</th>
+    <th>Title</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @webservicetolistens.each do |webservicetolisten| %>
+  <tr>
+    <td><%= webservicetolisten.archipath %></td>
+    <td><%= webservicetolisten.date %></td>
+    <td><%= webservicetolisten.description %></td>
+    <td><%= webservicetolisten.environment %></td>
+    <td><%= webservicetolisten.nuxeouid %></td>
+    <td><%= webservicetolisten.title %></td>
+    <td><%= webservicetolisten.url %></td>
+    <td><%= link_to 'Show', webservicetolisten %></td>
+    <td><%= link_to 'Edit', edit_webservicetolisten_path(webservicetolisten) %></td>
+    <td><%= link_to 'Destroy', webservicetolisten, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Webservicetolisten', new_webservicetolisten_path %>

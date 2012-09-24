@@ -1,0 +1,25 @@
+<div id="loginas">Web Services to listen list</div>
+
+<div class="span7">
+  <table class="table table-bordered">
+    <tr>
+      <th class="menufontstyle">Nuxeouid</th>
+      <th class="menufontstyle">Title</th>
+      <th class="menufontstyle">Url</th>
+      <th class="menufontstyle">Archipath</th>
+      <th class="menufontstyle">Environment</th>
+    </tr>
+
+    <% @webserv.each do |webservicetolisten| %>
+        <tr style="font-size: 13px;">
+          <td><%= webservicetolisten.nuxeouid %></td>
+          <td><%= webservicetolisten.title %></td>
+          <td><%= webservicetolisten.url %></td>
+          <td><%= webservicetolisten.archipath %></td>
+          <td><%= webservicetolisten.environment %></td>
+        </tr>
+    <% end %>
+  </table>
+
+  <br/>
+</div>

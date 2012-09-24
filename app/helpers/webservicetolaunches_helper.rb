@@ -1,0 +1,2 @@
+module WebservicetolaunchesHelper
+end

@@ -1,0 +1,23 @@
+<%= form_for(@proxy, :validate => true, :url => {:action => 'newproxy'}, :html => {:class => "form-horizontal"}) do |f| %>
+
+    <% if @proxy.errors.any? %>
+        <div class="alert alert-error">
+          <%= pluralize(@proxy.errors.count, "error") %>
+          <ul>
+            <% @proxy.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+    <br/>
+    <div class="actions">
+      <%= f.submit :class => "btn btn-info" %>
+    </div>
+
+<% end %>

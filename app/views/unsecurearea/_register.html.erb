@@ -1,0 +1,33 @@
+<div class="span4">
+<%= form_for(@user, :validate => true, :url =>{:action => 'register'}, :html => { :class => "form-horizontal"} )   do |f| %>
+    <% if @user.errors.any? %>
+        <div class="alert-error">
+          <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+          <%= f.label :firstname %>
+          <%= f.text_field :firstname %>
+
+          <%= f.label :lastname %>
+          <%= f.text_field :lastname %>
+
+          <%= f.label :username %>  <div class="alert-info">Use your nuxeo username</div>
+          <%= f.text_field :username %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password_confirmation %>
+
+        <div class="actions">
+          <%= f.submit :class=>"btn btn-info" %>
+        </div>
+    <% end %>
+    </div>

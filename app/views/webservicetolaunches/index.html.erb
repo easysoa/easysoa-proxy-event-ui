@@ -1,0 +1,29 @@
+<h1>Listing webservicetolaunches</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Environment</th>
+    <th>Nuxeouid</th>
+    <th>Url</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @webservicetolaunches.each do |webservicetolaunch| %>
+  <tr>
+    <td><%= webservicetolaunch.description %></td>
+    <td><%= webservicetolaunch.environment %></td>
+    <td><%= webservicetolaunch.nuxeouid %></td>
+    <td><%= webservicetolaunch.url %></td>
+    <td><%= link_to 'Show', webservicetolaunch %></td>
+    <td><%= link_to 'Edit', edit_webservicetolaunch_path(webservicetolaunch) %></td>
+    <td><%= link_to 'Destroy', webservicetolaunch, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Webservicetolaunch', new_webservicetolaunch_path %>

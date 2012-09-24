@@ -1,0 +1,56 @@
+<% content_for :userstate do %>
+    Logged as
+    <span id="username"><%= @user['username'] %></span>
+    (
+    <a href="http://localhost:8080/nuxeo/logout">logout</a>
+    )
+    </div>
+    Nuxeo Services list
+<% end %>
+
+
+<div id="leftframe">
+  <ul>
+    <li >  <%= link_to 'Home', :controller => "users", :action => "welcome" %> </li>
+    <li><%= link_to 'Services Nuxeo', :controller => "users", :action => "nuxeoserviceslist" %> </li>
+    <li>     <a href="http://www.easysoa.org">EasySOA</a> </li>
+    <li><a href="#"> Alerts </a></li>
+    <li><%= link_to 'Disconnect', :controller => "users", :action => "disconnect" %> </li>
+  </ul>
+</div>
+
+<div id="rightframe">
+
+
+  <table class="table table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Url</th>
+      <th>Last modification</th>
+      <th>Archi Path</th>
+      <th></th>
+    </tr>
+
+    <% @services.each do |service| %>
+        <tr>
+          <td> <%= service['title'] %> </td>
+          <td> <%= service['properties']['serv:url'] %></td>
+          <td> <%= service['lastModified'].to_datetime.strftime('%d %B %Y     %Hh %Mmin %Ss') %></td>
+          <td> <%= service['properties']['soa:archiPath'] %></td>
+          <td><%= link_to "Show",
+                          :controller => "users",
+                          :action => "showservice",
+                          :service => service %>
+
+            <%= link_to "Subscribe",
+                        :controller => "subscriptions",
+                        :action => "new",
+                        :service => service
+            %>
+          </td>
+
+        </tr>
+    <% end %>
+  </table>
+
+</div>

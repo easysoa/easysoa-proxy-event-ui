@@ -1,0 +1,41 @@
+<div id="loginas" style="font-size: 15px;"><br/>
+  Nuxeo Services list
+</div>       <br/>
+
+  <table class="table table-bordered " style="font-size: 13px;">
+    <div class="tableentete">
+      <tr>
+        <th class="menufontstyle">Name</th>
+        <th class="menufontstyle">Url</th>
+        <th class="menufontstyle">Last modification</th>
+        <th class="menufontstyle">Archi Path</th>
+        <th class="menufontstyle">Path</th>
+        <th class="menufontstyle">Action</th>
+      </tr>
+
+    </div>
+    <% @services.each do |service| %>
+        <tr>
+          <td> <%= service['title'] %> </td>
+          <td> <%= service['properties']['serv:url'] %></td>
+          <td> <%= service['lastModified'].to_datetime.strftime('%d %B %Y     %Hh %Mmin %Ss') %></td>
+          <td> <%= service['properties']['soa:archiPath'] %></td>
+          <td> <%= service['path'] %></td>
+
+          <td>
+            <div class="menufontstyle" style="font-size: 15px;">
+              <%= link_to "Show",
+                          :controller => "securearea",
+                          :action => "showservice",
+                          :service => service %>
+
+              <%= link_to "Subscribe",
+                          :controller => "securearea",
+                          :action => "newsubscription",
+                          :service => service
+              %>
+            </div>
+          </td>
+        </tr>
+    <% end %>
+  </table>

@@ -1,0 +1,22 @@
+<div id="loginas">Web Services to call</div>
+
+<div class="span8">
+  <table class="table table-bordered">
+    <tr>
+      <th class="menufontstyle">Description</th>
+      <th class="menufontstyle">Environment</th>
+      <th class="menufontstyle">Nuxeouid</th>
+      <th class="menufontstyle">Url</th>
+    </tr>
+
+    <% @webserv.each do |webservicetolaunch| %>
+        <tr>
+          <td><%= webservicetolaunch.description %></td>
+          <td><%= webservicetolaunch.environment %></td>
+          <td><%= webservicetolaunch.nuxeouid %></td>
+          <td><%= webservicetolaunch.url %></td>
+        </tr>
+    <% end %>
+  </table>
+
+</div>

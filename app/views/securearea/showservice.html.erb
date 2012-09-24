@@ -1,0 +1,74 @@
+<div class="span6">
+  <table class="table table-condensed">
+
+    <tr>
+      <th class="menufontstyle"> Attribute</th>
+      <th class="menufontstyle"> Value</th>
+    </tr>
+    <tr>
+      <td class="menufontstyle">Nuxeo ID</td>
+      <td> <%= @service['uid'] %> </td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle">Title</td>
+      <td> <%= @service['title'] %> </td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle">Url</td>
+      <td> <%= @service['properties'][Service_Endpoint_URL_property_name] %></td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle"> Last modification</td>
+      <td> <%= @service['lastModified'].to_datetime.strftime('%d %B %Y %Hh %Mmin %Ss') %></td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle">SOA ArchiPath</td>
+      <td> <%= @service['properties']['soa:archiPath'] %></td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle">Call count</td>
+      <td> <%= @service['properties']['serv:callcount'] %></td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle">Repository</td>
+      <td> <%= @service['repository'] %> </td>
+    </tr>
+    <tr>
+      <td class="menufontstyle">State</td>
+      <td> <%= @service['state'] %> </td>
+    </tr>
+    <tr>
+      <td class="menufontstyle">Contributors</td>
+      <td> <%= @service['properties']['dc:contributors'] %></td>
+    </tr>
+
+    <tr>
+      <td class="menufontstyle">Last contributor</td>
+      <td> <%= @service['properties']['dc:lastContributor'] %></td>
+    </tr>
+    <tr>
+      <td class="menufontstyle">Path</td>
+      <td> <%= @service['path'] %></td>
+    </tr>
+    <tr>
+      <td class="menufontstyle">Link</td>
+      <%
+         url = 'http://localhost:8080/nuxeo/nxpath/'
+         repository = @service['repository']
+         path = @service['path']
+         url << repository << path << '@view_documents?tabIds=%3A'
+      %>
+      <td>
+        <%= link_to "Nuxeo Service's page", url %>
+
+      </td>
+    </tr>
+  </table>
+
+</div>

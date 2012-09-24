@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  archipath: MyString
+  date: 2012-08-09 17:02:32
+  description: MyString
+  environment: MyString
+  nuxeouid: MyString
+  title: MyString
+  url: MyString
+
+two:
+  archipath: MyString
+  date: 2012-08-09 17:02:32
+  description: MyString
+  environment: MyString
+  nuxeouid: MyString
+  title: MyString
+  url: MyString
