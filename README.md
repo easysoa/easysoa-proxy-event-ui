@@ -13,9 +13,9 @@ Lets talk about how it works. this application  has many requirements:
 - After installing ruby and rails install thin server by running: sudo gem install thin
 
 - Get easysoamonitoringrails from Github
-    - git clone git@github.com:wilfried2006/easysoamonitoringrails.git
+    - git clone git@github.com:easysoa/easysoa-proxy-event-ui.git
         Or
-    - git clone https://github.com/wilfried2006/easysoamonitoringrails.git
+    - git clone https://github.com/easysoa/easysoa-proxy-event-ui.git
 
 - Build EasySOA
 
