@@ -1,4 +1,4 @@
-easysoamonitoringrails
+easysoa-proxy-event-ui 
 =======================
 
 EasySOA event monitoring Subscription UI
@@ -14,7 +14,7 @@ Lets talk about how it works. this application  has many requirements:
 
 - Get easysoamonitoringrails from Github
     - git clone git@github.com:easysoa/easysoa-proxy-event-ui.git
-        Or
+       
     - git clone https://github.com/easysoa/easysoa-proxy-event-ui.git
 
 - Build EasySOA
